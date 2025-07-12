@@ -1,0 +1,40 @@
+.input_names {
+    display: flex;
+}
+
+.half-width {
+    width: 48%; /* Half of the container width with a little margin */
+    margin-right: 4%; /* Add some space between the input fields */
+}
+
+.input-field {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding for input fields */
+    margin: 8px 0; /* Margin between input fields */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.login_page_button {
+    width: 100%; /* Full width */
+    padding: 15px 0; /* Padding for taller buttons */
+    margin: 15px 0; /* Margin for space between input fields and button */
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Cursor effect on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    font-size: 16px; /* Font size */
+}
+
+.login_page_button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.error-message .input-wrapper{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }

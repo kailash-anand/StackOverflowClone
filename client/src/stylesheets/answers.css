@@ -1,0 +1,305 @@
+.mainContent {
+    margin-left: 15%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+.questionDetails {
+    margin-top: 10%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.questionTitle {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.answersCount, .viewsCount, .votesCount {
+    font-size: 16px;
+    color: #555;
+}
+
+.subheading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+    margin-top: 20px;
+}
+
+.subheadingA {
+    font-size: 15px;
+    font-weight: bold;
+    color: #444;
+    margin-top: 20px;
+}
+
+
+.questionText {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-top: 5px;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.tag {
+    background-color: #eef;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.askedBy {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.username {
+    color: #205493;
+    font-weight: bold;
+}
+
+.commentsContainer {
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+
+.comment {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.commentA {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 5px;
+    height: 16.8px;
+}
+
+.commentText {
+    color: #333;
+}
+
+.commentAuthor {
+    color: #205493;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.commentDate {
+    color: #888;
+    font-size: 12px;
+}
+
+.date {
+    color: #888;
+    font-style: italic;
+}
+
+.VotesContainer{
+    font-size: 12px; 
+    color: #444;
+}
+ 
+
+.answersSubtitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+    text-align: left;
+    padding-left: 2%; /* Align with the content */
+}
+
+.answerText {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.answerFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.answerVotes {
+    color: #555;
+    margin-right: 10px;
+}
+
+.answerDetails {
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.answerAuthor {
+    font-weight: bold;
+    color: #205493;
+}
+
+.answerDate {
+    color: #888;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.pagination button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.paginationAc {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.paginationAc button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.paginationAc button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.answerList {
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 0 15px;  /* Adjust padding to ensure some spacing from the sidebar */
+}
+
+.answer {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+/* Align 'Answer Question' button to the left */
+.answerQuestionBtn {
+    display: block;
+    width: 200px;
+    margin: 20px 0; /* Removed 'auto' from margin to align to the left */
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: start; /* Aligns the button to the start (left) of the flex container */
+}
+
+.addCommentBtn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.addCommentBtn:hover {
+    background-color: #0056b3;
+}
+
+.commentForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: 50%;
+}
+
+.answerForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: 50%;
+}
+.answerQuestionBtn {
+    position: relative; /* Ensure relative positioning for the button container */
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.commentForm textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.answerForm textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.answerForm button {
+    margin-right: 10px;
+}
+
+.commentForm button {
+    margin-right: 10px;
+}

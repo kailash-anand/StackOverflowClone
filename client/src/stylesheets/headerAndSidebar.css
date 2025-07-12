@@ -1,0 +1,71 @@
+.header{
+    background-color: lightgray;
+    position: fixed;
+    width: 100%;
+    border: 2.5px;
+    border-bottom: solid;
+    height: 15%;
+    z-index: 1;
+    display: inline-block;
+}
+
+.profile-icon {
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Adjust color as needed */
+    text-decoration: none; /* Remove underline */
+    margin-left: 5%;
+    position: absolute;
+    transform: translateY(150%);
+}
+
+.header h1{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 250%;
+}
+
+.search{
+    position: relative;
+    text-align: left;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: black;
+    margin-top: 2.5%;
+    width: 200%;
+    height: 25%;
+    padding: 5%;
+}
+
+.search_form{
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar{
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    background-color: white;
+    border-right: 2.5px dotted;
+    top:15%;
+}
+
+.sidebar h2{
+    text-align: center;
+    color:blue;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar button{
+    color: rgb(34, 22, 197);
+    width: 100%; 
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    margin-top:20%;
+    height:7.5%;
+}
+ 

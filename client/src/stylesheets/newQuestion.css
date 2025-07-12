@@ -1,0 +1,70 @@
+.qform{
+    background-color: none;
+    width: 70%;
+    padding-top: 10%;
+    padding-left: 20%;
+}
+
+.textError, .titleError, .tagError, .summaryError {
+    color: red;
+}
+
+.helpText{
+    margin-left: 2%;
+    font-style: italic;
+    color: none;
+}
+
+#qsubmit{
+    background-color: blue;
+    width: 20%;
+    padding: 2%;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    border-color: black;
+}
+
+.mandatory{
+    display: inline-block;
+    padding-left: 62%;
+    color: red;
+}
+
+label{
+    background-color: none;
+    font-size: x-large;
+}
+
+input{
+    background-color: none;
+    border: 2px groove;
+    margin-top: 2%;
+    width: 50%;
+    display: block;
+}
+
+#qtitle{
+    padding-bottom: 5%;
+    width: 100%;
+}
+
+#qsummary {
+    padding-bottom: 5%;
+    width: 100%;
+}
+
+#qtext{
+    padding-bottom: 20%;
+    width: 100%;
+}
+
+#qtag{
+    padding-bottom: 3%;
+    width: 100%;
+}
+
+::placeholder{
+    font-style: italic;
+    font-weight: bold;
+}

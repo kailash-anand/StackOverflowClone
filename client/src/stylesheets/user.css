@@ -1,0 +1,147 @@
+.main-content3 {
+    padding-top: 20px;
+}
+
+.user-info {
+    margin-top: 8%;
+    margin-left: 17%;
+    margin-right: 2%;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.user-info h2 {
+    color: #333;
+}
+
+.user-info p {
+    color: #666;
+    font-size: 16px;
+}
+
+.middle2 {
+    display: inline-block;
+    color: black;
+    margin-left: 11%;
+    font-size: x-large;
+    width: 35%;
+    text-decoration: none;
+}
+
+.delete-button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #dc3545; /* Red color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.delete-button:hover {
+    background-color: darkred; /* Darker red color on hover */
+}
+
+.edit-button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: blue; /* Red color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.edit-button:hover {
+    background-color: darkblue; /* Darker red color on hover */
+}
+
+.container4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9; /* Light gray background */
+    border: 1px solid #ddd; /* Add border */
+    padding: 20px;
+    margin: 20px 0; /* Add spacing between containers */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add shadow */
+    margin-left: 17%;
+    margin-right: 2%;
+}
+
+.confirmation-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-modal p {
+    margin-bottom: 16px;
+}
+
+.confirmation-modal button {
+    margin-right: 8px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #dc3545; /* Red color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirmation-modal button:hover {
+    background-color: #c82333; /* Darker red color on hover */
+}
+
+.view-selection {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40%;
+}
+
+.view-selection button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.view-selection button:hover {
+    background-color: #0056b3;
+}
+
+.view-selection button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.5);
+}
+
+.tagBox2 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 110px; 
+    width: auto; 
+    flex-basis: 15%; 
+    border: 2.5px dotted black;
+    box-sizing: border-box;
+    font-size: 150%;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+    flex-direction: column;
+    margin-left: 8%;
+}

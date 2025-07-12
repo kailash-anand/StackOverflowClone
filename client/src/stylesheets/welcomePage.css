@@ -1,0 +1,48 @@
+/* Overall background styling */
+.background {
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightblue; /* Semi-transparent black background */
+    backdrop-filter: blur(8px); /* Blur effect for supported browsers */
+  }
+  
+  /* Styling the container that holds content */
+  .container {
+    background-color: white; /* White background for the content box */
+    padding: 40px; /* Further increased padding for more internal space */
+    border-radius: 12px; /* Slightly larger rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow for a more pronounced effect */
+    width: 50%; /* Width relative to the viewport, larger size */
+    max-width: 600px; /* Maximum width to avoid being too large on bigger screens */
+    text-align: center; /* Centering the text */
+  }
+  
+  .title {
+    margin-bottom: 30px; /* Increased space below the title */
+    color: #333; /* Dark grey color for text */
+    font-size: 24px; /* Larger font size for the title */
+  }
+  
+  .login, .register, .guest {
+    width: 85%; /* Slightly wider relative to container */
+    padding: 15px 0; /* Increased padding for taller buttons */
+    margin: 15px 0; /* Increased margin for more space between buttons */
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 6px; /* Slightly more rounded corners for buttons */
+    cursor: pointer; /* Cursor effect when hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    font-size: 16px; /* Larger font size for better readability */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  

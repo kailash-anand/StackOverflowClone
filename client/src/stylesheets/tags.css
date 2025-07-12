@@ -1,0 +1,132 @@
+.tagsbutton{
+    background-color: lightgray;
+  }
+  
+  .main{
+      margin-left: 15%;
+      height: 37.5%;
+      display: flex;
+      background-color: none;
+  }
+  
+  .var_tags{
+    padding-top: 12.5%;
+    padding-left: 7.5%;
+    text-align: center;
+    font-size: 225%;
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+  .updated_tag_count{
+    
+    padding-top: 12.5%;
+    padding-left: 7.5%;
+    text-align: center;
+    font-size: 225%;
+    font-weight:bold;
+    display: inline-block;
+  }
+  
+  .all_tags{
+    
+    padding-top: 12.5%;
+    text-align: center;
+    padding-left: 25%;
+    font-size: 225%;
+    font-weight:bold;
+  }
+  
+  .main button{
+    margin-top: 15%;
+    background-color: blue;
+    color: white;
+    border: solid;
+    border-color: black;
+    width: 15%;
+    cursor: pointer;
+    margin-left: 25%;
+    display: inline-block;
+    margin-bottom: 9%;
+    height: 50px;
+  }
+  
+  
+  
+  #elementsContainer {
+    padding-left: 25%;
+    height: 62.5%;
+    width: 75%; 
+  }
+  
+  
+  
+  .box {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100px;
+    flex-basis: 15%; 
+    border: 2.5px dotted black;
+    box-sizing: border-box;
+    font-size: 150%;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+    flex-direction: column;
+    
+  }
+
+  #elementsContainer > div {
+    width: 115%;
+    display: flex;
+    gap: 15%;
+    flex-wrap: wrap; 
+  }
+  
+  .data-link, .data-pre {
+    margin: 0; 
+    padding: 2px 0; 
+    white-space: normal; 
+  }
+
+  .tagBox {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 110px; 
+    width: auto; 
+    flex-basis: 15%; 
+    border: 2.5px dotted black;
+    box-sizing: border-box;
+    font-size: 150%;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+    flex-direction: column;
+}
+  
+  .taglink{
+    margin: 0; 
+    white-space: normal; 
+  }
+
+  .tagcount{
+    margin: 0; 
+    white-space: normal; 
+  }
+  
+  .tagContainer2 {
+    padding-left: 15%;
+    height: 62.5%;
+    width: 67.5%; 
+  }
+
+  .tagContainer2 > div {
+    width: 110%;
+    display: flex;
+    gap: 15%;
+    flex-wrap: wrap; 
+  }
+  
+  
