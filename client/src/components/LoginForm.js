@@ -1,9 +1,10 @@
 import React from 'react';
 import '../stylesheets/login.css';
-import { loginUser } from '../api/authServlet';
-import { UNAUTHORIZED, SUCCESS, SERVER_ERROR } from '../constants';
+import { loginUser } from '../api/AuthServlet';
+import { UNAUTHORIZED, SUCCESS, SERVER_ERROR, USER_KEY } from '../constants';
 import { useUser } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { setToLocalStorage } from '../util/LocalStorageHelper';
 
 export const LoginForm = () => {
 	const navigate = useNavigate()
@@ -21,6 +22,7 @@ export const LoginForm = () => {
 		try {
 			const response = await loginUser(email, password)
 			setUser(response.data.user)
+			setToLocalStorage(USER_KEY, response.data.user)
 			navigate(`/home/${response.data.user.firstName}`)
 		}
 		catch (err) {

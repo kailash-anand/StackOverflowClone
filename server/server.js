@@ -47,6 +47,36 @@ app.get("/api/questions", async (req, res) => {
   }
 })
 
+app.get("/api/getQuestionCount", async (req, res) => {
+  try {
+    const count = await Question.countDocuments()
+    res.status(200).json(count)
+  }
+  catch (error) {
+    console.log("Error fetching items: ", error)
+    res.status(500).json({message: "Internal server error"})
+  }
+})
+
+app.get("/api/getQuestionTags/:questionId", async (req, res) => {
+  try {
+    const questionId = req.params.questionId
+    const question = await Question.findOne({_id: questionId})
+    let tags = []
+    
+    for (const tagId of question.tags) {
+      const tag = await Tags.findOne({_id: tagId})
+      tags.push(tag)
+    }
+
+    res.status(200).json(tags)
+  }
+  catch (error) {
+    console.error("Error fecthing items: ", error)
+    res.status(500).json({message: "Internal server error"})
+  }
+})
+
 app.get("/api/answers", async (req, res) => {
   try {
     const items = await Answers.find();
@@ -143,6 +173,23 @@ app.get("/api/getUserByEmail/:email", async (req, res) => {
 		console.error("Error fetching items: ", error)
 		res.status(500).json({message: "Internal server error"})
 	}
+})
+
+app.get("/api/getUserById/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId
+    const user = await Users.findOne({_id: userId})
+
+    if (user) {
+      return res.status(200).json({message: "User found", data: user})
+    }
+
+    return res.status(404).json({message: "User not found"})
+  }
+  catch (error) {
+    console.error("Error fetching items: " + error)
+    res.status(500).json({message: "Internal server error"})
+  }
 })
 
 

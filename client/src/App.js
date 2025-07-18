@@ -1,6 +1,6 @@
 // ************** THIS IS YOUR APP'S ENTRY POINT. CHANGE THIS FILE AS NEEDED. **************
 // ************** DEFINE YOUR REACT COMPONENTS in ./components directory **************
-import React from 'react';
+import React, { useEffect } from 'react';
 import './stylesheets/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import WelcomePage from './components/Welcome.js'
@@ -16,6 +16,7 @@ import { Tagspage } from './components/tags.js';
 import { User } from './components/user.js';
 import { SearchQuery } from './components/search.js';
 import { ToastContainer } from 'react-toastify';
+import NewQuestionPage from './pages/NewQuestionPage.js';
 
 let currentUser = null;
 let sessionUser = null;
@@ -157,6 +158,7 @@ function App() {
 				<Route path='/login' element={<LoginPage/>}/>
 				<Route path='/register' element={<RegisterPage/>}/>
 				<Route path='/home/:firstName' element={<HomePage/>}/>
+				<Route path='/home/:firstName/new_question' element={<NewQuestionPage/>}/>
 			</Routes>
 			<ToastContainer />
 		</Router>

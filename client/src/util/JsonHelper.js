@@ -4,7 +4,7 @@
 
 export const isValidJSON = (data) => {
 	if (typeof data !== 'string') {
-		return
+		return false
 	}
 
 	try {

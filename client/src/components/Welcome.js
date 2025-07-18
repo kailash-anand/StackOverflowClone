@@ -1,6 +1,8 @@
 import '../stylesheets/welcomePage.css';
 import { useUser } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { setToLocalStorage } from '../util/LocalStorageHelper';
+import { USER_KEY } from '../constants';
 
 
 export default function Welcome() {
@@ -8,7 +10,15 @@ export default function Welcome() {
 	const navigate = useNavigate()
 
   	const setToHome = () => {
-		setUser({isGuest: true})
+		const guestUser = {
+			firstName: 'guest',
+			lastName: 'guest',
+			isGuest: true,
+			isAdmin: false
+		}
+
+		setUser(guestUser)
+		setToLocalStorage(USER_KEY, guestUser)
 		navigate('/home/guest')
   	}
 

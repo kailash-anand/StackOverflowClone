@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/register.css';
-import { signupUser } from '../api/authServlet';
+import { signupUser } from '../api/AuthServlet';
 import { useNavigate } from 'react-router-dom';
 import { SERVER_ERROR, UNAUTHORIZED } from '../constants';
 

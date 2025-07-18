@@ -1,6 +1,6 @@
 import { LOGIN, ADD_USER, VERIFY_USER } from "../constants/index" 
 import { SUCCESS } from "../constants/index";
-import { makeApiCall } from "./apiServlet";
+import { makeApiCall } from "./ApiServlet";
 
 export const loginUser = async (email, password) => {
     try {
