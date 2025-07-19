@@ -6,16 +6,19 @@ export const GET_USER_BY_EMAIL = (email) => `http://localhost:8000/api/getUserBy
 export const GET_USER_BY_ID = (userId) => `http://localhost:8000/api/getUserById/${userId}`
 ////POST
 export const LOGIN = "http://localhost:8000/api/login"
-export const ADD_USER = "http://localhost:8000/api/user"
+export const ADD_USER = "http://localhost:8000/api/addUser"
 ///QUESTION
 ////GET
 export const GET_ALL_QUESTIONS = "http://localhost:8000/api/questions"
 export const GET_QUESTION_COUNT = "http://localhost:8000/api/getQuestionCount"
 export const GET_QUESTION_TAGS = (questionId) => `http://localhost:8000/api/getQuestionTags/${questionId}`
 ////POST
+export const ADD_QUESTION = "http://localhost:8000/api/question"
 ///TAG
 ////GET
 export const GET_ALL_TAGS = "http://localhost:8000/api/tags"
+export const GET_TAGS_COUNT = "http://localhost:8000/api/tags/count"
+export const GET_TAG_QUESTION_COUNT = (tagId) => `http://localhost:8000/api/tags/${tagId}/question_count`
 ////POST
 
 //Response Codes

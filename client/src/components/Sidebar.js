@@ -10,8 +10,8 @@ export const Sidebar = () => {
 		navigate(`/home/${user.firstName}`)
 	} 
 	 
-	const navigatehome = () => {
-		
+	const setToTagsPage = () => {
+		navigate(`/tags/${user.firstName}`)
 	}
 
 	return (
@@ -19,7 +19,7 @@ export const Sidebar = () => {
 			<button type="button" onClick={setToHomePage} className="question" >
 				<h2> Questions </h2>
 			</button>
-			<button type="button" onClick={navigatehome} className="tags">
+			<button type="button" onClick={setToTagsPage} className="tags">
 				<h2> Tags </h2>
 			</button>
 		</div>

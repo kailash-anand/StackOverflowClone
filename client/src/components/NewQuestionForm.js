@@ -1,6 +1,12 @@
 import React from "react";
+import { useUser } from "../context/UserContext"
+import { useNavigate } from "react-router-dom"
+import { addQuestion } from '../api/QuestionServlet';
 
 export const NewQuestionForm = () => {
+    const navigate = useNavigate()
+    const user = useUser()
+
     let [title, setTitle] = React.useState("");
     let [summary, setSummary] = React.useState("");
     let [text, setText] = React.useState("");
@@ -17,7 +23,7 @@ export const NewQuestionForm = () => {
         const text = data.text;
         const tags = data.tags;
 
-        const tagArray = tags.split(/\s+/);
+        const tagArray = tags.split(/\s+/)
 
         let check = false;
         const hyperlinkPattern = /\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g;
@@ -27,8 +33,8 @@ export const NewQuestionForm = () => {
             titleError.textContent = "Please enter a title";
             check = true;
         }
-        else if (title.length > 50) {
-            titleError.textContent = "Character length cannot exceed 50";
+        else if (title.length > 100) {
+            titleError.textContent = "Character length cannot exceed 100";
         }
         else { titleError.textContent = ""; }
 
@@ -77,21 +83,30 @@ export const NewQuestionForm = () => {
         }
     }
 
-    const submitForm = (event) => {
+    const submitForm = async (event) => {
         event.preventDefault()
+		console.log(user)
 
-        const data = [
-            {
-                title: title,
-                summary: summary,
-                text: text,
-                tags: tags,
-            },
-        ];
+        const data = {
+            title: title,
+            summary: summary,
+            text: text,
+            tags: tags,
+            askedBy: user.user.email,
+            ask_date_time: new Date().getTime(),
+        };
 
-        if (!validateForm(data[0]) !== 1) {
-            event.preventDefault()
-            return
+        if (validateForm(data) === -1) {
+            return;
+        }
+
+		data.tags = tags.split(/\s+/).filter(tag => tag.trim() !== '')
+
+        try {
+            await addQuestion(data);
+            navigate(`/home/${user.firstName}`)
+        } catch (error) {
+            console.error('Failed to post question:', error);
         }
     }
 

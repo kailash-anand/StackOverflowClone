@@ -7,6 +7,7 @@ import WelcomePage from './components/Welcome.js'
 import LoginPage from './pages/LoginPage.js';
 import RegisterPage from './pages/RegisterPage.js'
 import HomePage from './pages/HomePage.js';
+import TagsPage from './pages/TagsPage.js'
 
 import { Login } from './components/LoginForm.js'
 import { Register } from './components/RegisterForm.js';
@@ -159,6 +160,7 @@ function App() {
 				<Route path='/register' element={<RegisterPage/>}/>
 				<Route path='/home/:firstName' element={<HomePage/>}/>
 				<Route path='/home/:firstName/new_question' element={<NewQuestionPage/>}/>
+				<Route path='/tags/:firstName' element={<TagsPage/>}/>
 			</Routes>
 			<ToastContainer />
 		</Router>

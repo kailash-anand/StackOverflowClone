@@ -109,6 +109,29 @@ app.get("/api/tags", async (req, res) => {
   }
 })
 
+app.get("/api/tags/count", async (req, res) => {
+	try {
+		const count = await Tags.countDocuments()
+		res.status(200).json(count)
+	} 
+	catch (error) {
+		console.error("Error fetching items: ", error)
+		res.status(500).json({ message: "Internal server error "})
+	}
+})
+
+app.get("/api/tags/:id/question_count", async (req, res) => {
+	try {
+		const tagId = req.params.id
+		const questionCount = await Question.countDocuments({ tags: tagId })
+		res.status(200).json(questionCount)
+	}
+	catch (error) {
+		console.error("Error fetching items: ", error)
+		res.status(500).json({ message: "Internal server error "})
+	}
+})
+
 app.get("/api/comments", async (req, res) => {
   try {
     const items = await Comments.find();
@@ -195,38 +218,58 @@ app.get("/api/getUserById/:userId", async (req, res) => {
 
 //POST
 
-app.post("/api/questions", async (req, res) => {
-  try {
+app.post("/api/question", async (req, res) => {
+	try {
+		const { title, summary, text, tags, askedBy, ask_date_time } = req.body;
 
-    const { title, summary, text, tags, answers, askedBy, ask_date_time, comments } = req.body;
+		if (!title || !askedBy || !text || !tags) {
+			return res.status(400).json({ message: "Required fileds" });
+		}
 
-    if (!title || !askedBy || !text || !tags) {
-      return res.status(400).json({ message: "Required fileds" });
-    }
+		const user = await Users.findOne({email: askedBy})
+		const userId = user._id
 
-    const newQuestion = new Question({
-      title,
-      summary,
-      text,
-      tags,
-      answers,
-      askedBy,
-      ask_date_time,
-      views: 0,
-      votes: 0,
-      comments
-    });
+		let tagIds = []
+		for (const tag of tags) {
+			const tagExists = await Tags.findOne({name: tag})
 
-    const savedQuestion = await newQuestion.save();
-    res.status(201).json(savedQuestion);
-  }
-  catch (error) {
-    console.log("Error creating question: ", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
+			if (!tagExists) {
+				const newTag = new Tags({
+					name: tag,
+					createdBy: userId
+				})
+
+				const savedTag = await newTag.save()
+				tagIds.push(savedTag._id)
+			}
+			else {
+				tagIds.push(tagExists._id)
+			}
+		}
+
+		const newQuestion = new Question({
+			title: title,
+			summary: summary,
+			text: text,
+			tags: tagIds,
+			answers: [],
+			askedBy: userId,
+			ask_date_time: ask_date_time,
+			views: 0,
+			votes: 0,
+			comments: []
+		});
+
+		const savedQuestion = await newQuestion.save();
+		res.status(201).json(savedQuestion);
+	}
+	catch (error) {
+		console.log("Error creating question: ", error);
+		res.status(500).json({ message: "Internal server error" });
+	}
 })
 
-app.post("/api/answers", async (req, res) => {
+app.post("/api/addAnswer", async (req, res) => {
   try {
     const { text, ans_by } = req.body;
 
@@ -257,7 +300,7 @@ app.post("/api/answers", async (req, res) => {
   }
 });
 
-app.post("/api/tags", async (req, res) => {
+app.post("/api/addTag", async (req, res) => {
   try {
     const { name, createdBy } = req.body;
 
@@ -279,7 +322,7 @@ app.post("/api/tags", async (req, res) => {
   }
 })
 
-app.post("/api/user", async (req, res) => {
+app.post("/api/addUser", async (req, res) => {
   try {
     const { first_name, last_name, email, password } = req.body;
 
@@ -305,7 +348,7 @@ app.post("/api/user", async (req, res) => {
   }
 })
 
-app.post('/api/comments', async (req, res) => {
+app.post('/api/addComment', async (req, res) => {
   try {
     const { text, authorId } = req.body;
     console.log("Received comment data:", req.body);
