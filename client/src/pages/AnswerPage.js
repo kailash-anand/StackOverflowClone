@@ -10,7 +10,8 @@ import { AnswerBody } from "../components/AnswerBody";
 
 export default function AnswersPage() {
     const {user, setUser} = useUser()
-    const firstName = useParams()
+    const params = useParams()
+	const firstName = params.firstName
     const navigate = useNavigate()
 
     useEffect(() => {

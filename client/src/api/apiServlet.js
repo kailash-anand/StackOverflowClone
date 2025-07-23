@@ -1,7 +1,7 @@
 import axios from "axios";
 
 /**
- * Makes the API call to the server based on the provided params
+ * Makes an API call to the server based on the provided params
  * 
  * @param {string} url - The endpoint URL to send the request to.
  * @param {'GET' | 'POST' | 'PUT' | 'DELETE'} method - The HTTP method to use.

@@ -10,8 +10,12 @@ export const ADD_USER = "http://localhost:8000/api/addUser"
 ///QUESTION
 ////GET
 export const GET_ALL_QUESTIONS = "http://localhost:8000/api/questions"
+export const GET_QUESTION_BY_ID = (questionId) => `http://localhost:8000/api/questions/${questionId}`
 export const GET_QUESTION_COUNT = "http://localhost:8000/api/getQuestionCount"
 export const GET_QUESTION_TAGS = (questionId) => `http://localhost:8000/api/getQuestionTags/${questionId}`
+export const GET_QUESTION_ANSWERS = (questionId) => `http://localhost:8000/api/questions/${questionId}/answers`
+////PUT
+export const INCREMENT_QUESTION_VIEWS = (questionId) => `http://localhost:8000/api/questions/${questionId}/incr_views`
 ////POST
 export const ADD_QUESTION = "http://localhost:8000/api/question"
 ///TAG

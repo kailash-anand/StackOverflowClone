@@ -47,6 +47,23 @@ app.get("/api/questions", async (req, res) => {
   }
 })
 
+app.get("/api/questions/:id", async (req, res) => {
+	try {
+		const questionId = req.params.id
+		const question = await Question.findOne({_id: questionId})
+
+		if (!question) {
+			return res.status(404).json({ message: "Question not found" });
+		}
+
+		res.status(200).json(question)
+	}
+	catch (error) {
+		console.error("Error fetching items: ", error)
+		res.status(500).json({ message: "Internal server error"})
+	}
+})
+
 app.get("/api/getQuestionCount", async (req, res) => {
   try {
     const count = await Question.countDocuments()
@@ -75,6 +92,25 @@ app.get("/api/getQuestionTags/:questionId", async (req, res) => {
     console.error("Error fecthing items: ", error)
     res.status(500).json({message: "Internal server error"})
   }
+})
+
+app.get("/api/questions/:id/answers", async (req, res) => {
+	try {
+		const questionId = req.params.id
+		const question = await Question.findOne({_id: questionId})
+		let answers = []
+
+		for (const answerId of question.answers) {
+			const answer = await Answers.findOne({_id: answerId})
+			answers.push(answer)
+		}
+
+		res.status(200).json(answers)
+	}
+	catch (error) {
+		console.log("Error fetching items: ", error);
+		res.status(500).json({ message: "Internal server error" });
+  	}
 })
 
 app.get("/api/answers", async (req, res) => {
@@ -501,6 +537,26 @@ app.put('/api/questions/:id/comments', async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+app.put("/api/questions/:id/incr_views", async (req, res) => {
+	try {
+		const questionId = req.params.id
+		const question = await Question.findOne({_id: questionId})
+
+		if (!question) {
+			return res.status(404).json({ message: "Question not found" });
+		}
+
+		question.views++
+		const updatedQuestion = await question.save();
+
+		res.status(200).json(updatedQuestion);
+	}
+	catch (error) {
+		console.error("Error updating question:", error);
+    	res.status(500).json({ message: "Internal server error" });
+	}
+})
 
 app.put('/api/answers/:id/comments', async (req, res) => {
   try {

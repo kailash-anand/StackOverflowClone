@@ -162,7 +162,7 @@ function App() {
 				<Route path='/home/:firstName' element={<HomePage/>}/>
 				<Route path='/home/:firstName/new_question' element={<NewQuestionPage/>}/>
 				<Route path='/tags/:firstName' element={<TagsPage/>}/>
-				<Route path='/home/:firstname/:questionId' element={<AnswersPage/>}/>
+				<Route path='/answers/:firstName/:questionId' element={<AnswersPage/>}/>
 			</Routes>
 			<ToastContainer />
 		</Router>

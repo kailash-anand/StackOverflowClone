@@ -2,17 +2,25 @@ import React, { useEffect, useState } from "react";
 import { findDate } from "../util/ObjHelper"; 
 import { getUserById } from "../api/UserServlet";
 import { toast } from "react-toastify";
-import { getQuestionTags } from "../api/QuestionServlet";
+import { getQuestionTags, viewQuestion } from "../api/QuestionServlet";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 export const QuestionItem = (props) => {
     const question = props.question 
-    const [user, setUser] = useState(null)
+	const currUser = useUser().user // User logged in
+    const [user, setUser] = useState(null) // User who asked current question
     const [tags, setTags] = useState([])
     const navigate = useNavigate()
 
-    const goToAnswerPage = () => {
-        navigate(`/home/${user.firstname}/${question._id}`)
+    const goToAnswerPage = async () => {
+		try {
+			await viewQuestion(question._id)
+			navigate(`/answers/${currUser.firstName}/${question._id}`)
+		}
+		catch (err) {
+			toast.error("Error viewing question")
+		}
     }
 
     useEffect(() => {
