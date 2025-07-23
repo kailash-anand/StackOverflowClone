@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { getQuestionCount } from "../api/QuestionServlet";
 
-export const QuestionHeader = () => {
+export const QuestionHeader = (props) => {
     const {user} = useUser()
     const [questionCount, setQuestionCount] = useState(0)
 	const navigate = useNavigate()
@@ -13,17 +12,8 @@ export const QuestionHeader = () => {
     }
 
     useEffect(() => {
-        const getNoOfQuestions = async () => {
-            try {
-                setQuestionCount((await getQuestionCount()).data)
-            }
-            catch (err) {
-                setQuestionCount(0)
-            }
-        }
-
-        getNoOfQuestions()
-    }, [])
+        setQuestionCount(props.questionCount)
+    }, [props.questionCount])
 
 	return (
         <>

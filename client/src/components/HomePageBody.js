@@ -51,7 +51,7 @@ export const HomePageBody = () => {
 
 	return (
 		<>
-			<QuestionHeader />
+			<QuestionHeader questionCount={displayQuestions.length}/>
 			{displayQuestions && displayQuestions.map((question) => (
 				<QuestionItem key={question._id} question={question}/>
 			))}

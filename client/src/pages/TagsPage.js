@@ -24,7 +24,7 @@ export default function TagsPage () {
 		if (user && user.firstName !== firstName) {
 			navigate(`/tags/${user.firstName}`)
 		}
-	})
+	}, [user, firstName, navigate, setUser])
 
 	return (
 		<>

@@ -18,6 +18,7 @@ import { User } from './components/user.js';
 import { SearchQuery } from './components/search.js';
 import { ToastContainer } from 'react-toastify';
 import NewQuestionPage from './pages/NewQuestionPage.js';
+import AnswersPage from './pages/AnswerPage.js';
 
 let currentUser = null;
 let sessionUser = null;
@@ -161,6 +162,7 @@ function App() {
 				<Route path='/home/:firstName' element={<HomePage/>}/>
 				<Route path='/home/:firstName/new_question' element={<NewQuestionPage/>}/>
 				<Route path='/tags/:firstName' element={<TagsPage/>}/>
+				<Route path='/home/:firstname/:questionId' element={<AnswersPage/>}/>
 			</Routes>
 			<ToastContainer />
 		</Router>

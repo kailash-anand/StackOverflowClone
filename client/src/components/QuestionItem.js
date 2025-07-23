@@ -3,11 +3,17 @@ import { findDate } from "../util/ObjHelper";
 import { getUserById } from "../api/UserServlet";
 import { toast } from "react-toastify";
 import { getQuestionTags } from "../api/QuestionServlet";
+import { useNavigate } from "react-router-dom";
 
 export const QuestionItem = (props) => {
     const question = props.question 
     const [user, setUser] = useState(null)
     const [tags, setTags] = useState([])
+    const navigate = useNavigate()
+
+    const goToAnswerPage = () => {
+        navigate(`/home/${user.firstname}/${question._id}`)
+    }
 
     useEffect(() => {
         const getUser = async () => {
@@ -39,7 +45,7 @@ export const QuestionItem = (props) => {
             <pre className="left">
                 {question.answers.length + " answers\n" + question.views + " views\n" + question.votes + " votes"}
             </pre>
-            <a className="middle" href="#" >
+            <a className="middle" href="#" onClick={goToAnswerPage}>
                 {question.title}
             </a>
             <p className="right">
