@@ -23,7 +23,10 @@ export const ADD_QUESTION = "http://localhost:8000/api/question"
 export const GET_ALL_TAGS = "http://localhost:8000/api/tags"
 export const GET_TAGS_COUNT = "http://localhost:8000/api/tags/count"
 export const GET_TAG_QUESTION_COUNT = (tagId) => `http://localhost:8000/api/tags/${tagId}/question_count`
+///ANSWER
 ////POST
+export const ADD_ANSWER = (questionId) => `http://localhost:8000/api/answers/${questionId}`
+
 
 //Response Codes
 export const UNAUTHORIZED = 401

@@ -305,35 +305,46 @@ app.post("/api/question", async (req, res) => {
 	}
 })
 
-app.post("/api/addAnswer", async (req, res) => {
-  try {
-    const { text, ans_by } = req.body;
+app.post("/api/answers/:questionId", async (req, res) => {
+  	try {
+		const questionId = req.params.questionId
+		const { text, ans_by } = req.body;
 
-    // Check if required fields are provided
-    if (!text || !ans_by) {
-      return res.status(400).json({ message: "Text and ans_by fields are required" });
-    }
+		if (!text || !ans_by) {
+			return res.status(400).json({ message: "Text and ans_by fields are required" });
+		}
 
-    // Assuming ans_date_time should be set to the current date/time
-    const ans_date_time = new Date();
+		const user = await Users.findOne({email: ans_by})
+		const question = await Question.findOne({_id: questionId})
 
-    // Create a new answer instance
-    const newAnswer = new Answers({
-      text,
-      ans_by,
-      ans_date_time,
-      votes: 0
-    });
+		if (!user) {
+			return res.status(404).json({ message: "User not found" });
+		}
+		else if (!question) {
+			return res.status(404).json({ message: "Question not found" });
+		}
 
-    // Save the new answer to the database
-    const savedAnswer = await newAnswer.save();
+		const userId = user._id
+		const ans_date_time = new Date();
 
-    // Respond with the saved answer object
-    res.status(201).json(savedAnswer);
-  } catch (error) {
-    console.error("Error creating answer:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
+		const newAnswer = new Answers({
+			text: text,
+			ans_by: userId,
+			ans_date_time: ans_date_time,
+			votes: 0,
+			comments: []
+		});
+
+		const savedAnswer = await newAnswer.save(); 
+		
+		question.answers.push(savedAnswer._id)
+		await question.save()
+
+		res.status(201).json(savedAnswer);
+  	} catch (error) {
+		console.error("Error creating answer:", error);
+		res.status(500).json({ message: "Internal server error" });
+  	}
 });
 
 app.post("/api/addTag", async (req, res) => {
