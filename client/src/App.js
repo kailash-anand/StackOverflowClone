@@ -19,6 +19,7 @@ import { SearchQuery } from './components/search.js';
 import { ToastContainer } from 'react-toastify';
 import NewQuestionPage from './pages/NewQuestionPage.js';
 import AnswersPage from './pages/AnswerPage.js';
+import ProfilePage from './pages/ProfilePage.js';
 
 let currentUser = null;
 let sessionUser = null;
@@ -163,6 +164,7 @@ function App() {
 				<Route path='/home/:firstName/new_question' element={<NewQuestionPage/>}/>
 				<Route path='/tags/:firstName' element={<TagsPage/>}/>
 				<Route path='/answers/:firstName/:questionId' element={<AnswersPage/>}/>
+				<Route path='/profile/:firstName'element={<ProfilePage/>}/>
 			</Routes>
 			<ToastContainer />
 		</Router>

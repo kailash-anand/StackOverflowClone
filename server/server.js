@@ -444,7 +444,7 @@ app.post('/api/login', async (req, res) => {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    res.status(200).json({ message: "Login successful", user: { email: user.email, firstName: user.first_name, lastName: user.last_name } });
+    res.status(200).json({ message: "Login successful", user: { email: user.email, firstName: user.first_name, lastName: user.last_name, reputation: user.reputation, isAdmin: user.isAdmin} });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ message: "Internal server error" });
